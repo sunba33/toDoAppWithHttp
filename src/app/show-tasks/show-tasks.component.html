@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">User Id</th>
+            <th scope="col">Task Id</th>
+            <th scope="col">Task</th>
+            <th scope="col">Completed?</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of tasks">
+            <td>{{task.userId}}</td>
+            <td>{{task.id}}</td>
+            <td>{{task.title}}</td>
+            <td [ngSwitch]="task.completed">
+                <span *ngSwitchCase="true">Done</span>
+                <span *ngSwitchCase="false">Not Yet</span>
+            </td>
+            <td><button class="btn btn-success btn-sm" (click)=updateCompleted(task)>Done</button></td>
+        </tr>
+    </tbody>
+</table>
